@@ -1,0 +1,33 @@
+{
+  "name": "zomato",
+  "version": "1.0.0",
+  "description": "this is zomato website using react",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriteshmoyal01/Zomato-using-react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "kritesh moyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kriteshmoyal01/Zomato-using-react/issues"
+  },
+  "homepage": "https://github.com/kriteshmoyal01/Zomato-using-react#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
