@@ -11,7 +11,7 @@ const Header = () => (
         alt="logo"
       />
     </div>
-    <div className="nav_item">
+    <div className="nav-item">
       <ul>
         <li>Home</li>
         <li>About Us</li>
@@ -27,71 +27,113 @@ const styleCard = {
 };
 
 const RestaurantCard = (props) => {
-  const resData = props.resData;
+  const { resData } = props;
+
+const {
+  cloudinaryImageId,
+  name,
+  cuisines,
+  avgRating,
+  costForTwo,
+  sla: { deliveryTime },   // ✅ nested destructuring
+} = resData?.info;
+
 
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="res-card" style={styleCard}>
       <img
         className="res-logo"
         alt="res-logo"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.cloudinaryImageId
+          resData.info.cloudinaryImageId
         }
       />
-      <h3>{resData.name}</h3>
-      <h4>{resData.cuisines.join(", ")}</h4>
-      <h4>{resData.avgRating} stars</h4>
-      <h4>{resData.costForTwo}</h4>
-      <h4>{resData.sla.deliveryTime} minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} stars</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{deliveryTime} minutes</h4>
     </div>
   );
 };
 
-const resobj = [
+const resList = [
   {
     info: {
-      id: "671928",
-      name: "KFC",
-      locality: "7th Block",
-      areaName: "Koramangala",
-      costForTwo: "₹400 for two",
-      cuisines: ["Burgers", "Fast Food", "Rolls & Wraps"],
-      avgRating: 4.1,
-      sla: {
-        deliveryTime: 18,
-      },
-      isOpen: true,
-    },
-  },
-  {
-    info: {
-      id: "10820",
-      name: "California Burrito",
-      locality: "Koramangala",
-      areaName: "Koramangala",
-      costForTwo: "₹250 for two",
-      cuisines: ["Mexican", "American", "Fast Food"],
-      avgRating: 4.6,
-      sla: {
-        deliveryTime: 16,
-      },
-      isOpen: true,
-    },
-  },
-  {
-    info: {
-      id: "23678",
-      name: "McDonald's",
-      locality: "5th Block",
-      areaName: "Koramangala",
-      costForTwo: "₹400 for two",
-      cuisines: ["Burgers", "Cafe"],
+      id: "340645",
+      name: "RNR Biryani - Taste of 1953",
+      cloudinaryImageId: "jhdven0c7dkmypffoigf",
+      costForTwo: "₹350 for two",
+      cuisines: ["Biryani", "South Indian", "Kebabs"],
       avgRating: 4.4,
-      sla: {
-        deliveryTime: 18,
-      },
-      isOpen: true,
+      sla: { deliveryTime: 22 },
+    },
+  },
+  {
+    info: {
+      id: "769775",
+      name: "Nahdi Mandi Restaurant",
+      cloudinaryImageId: "FOOD_CATALOG/IMAGES/CMS/2025/9/28/7d916bb0-430c-41f8-81e3-43705ea677df_a594e0f1-2332-4f29-bf86-183ca449e85d.jpg",
+      costForTwo: "₹450 for two",
+      cuisines: ["Biryani", "Arabian"],
+      avgRating: 4.3,
+      sla: { deliveryTime: 34 },
+    },
+  },
+  {
+    info: {
+      id: "485933",
+      name: "Dindigul Thalappakatti - Since 1957",
+      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2025/9/21/f89894cc-4731-432b-96bb-3788b53336c6_485933.JPG",
+      costForTwo: "₹500 for two",
+      cuisines: ["South Indian", "Biryani", "Chinese", "North Indian"],
+      avgRating: 4.3,
+      sla: { deliveryTime: 38 },
+    },
+  },
+  {
+    info: {
+      id: "1031311",
+      name: "Burger Singh (Big Punjabi Burgers)",
+      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/25/49bb331c-3f0e-4f54-9117-2a27a98e3355_1031311.jpg",
+      costForTwo: "₹300 for two",
+      cuisines: ["Burgers", "Snacks", "Fast Food", "Biryani"],
+      avgRating: 4.3,
+      sla: { deliveryTime: 35 },
+    },
+  },
+  {
+    info: {
+      id: "18973",
+      name: "Nandhana Palace",
+      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/21/c16228db-0f86-484e-b3b4-2fb707f22b76_18973.jpg",
+      costForTwo: "₹500 for two",
+      cuisines: ["Biryani", "Andhra", "South Indian", "North Indian"],
+      avgRating: 4.4,
+      sla: { deliveryTime: 25 },
+    },
+  },
+  {
+    info: {
+      id: "337335",
+      name: "Kannur Food Kitchen",
+      cloudinaryImageId: "watevctlyqwgjz0qkbr7",
+      costForTwo: "₹200 for two",
+      cuisines: ["Kerala", "Biryani", "Beverages"],
+      avgRating: 4.2,
+      sla: { deliveryTime: 31 },
+    },
+  },
+  {
+    info: {
+      id: "42060",
+      name: "Sharief Bhai Biryani",
+      cloudinaryImageId: "FOOD_CATALOG/IMAGES/CMS/2026/2/16/b81a5589-4f88-4bc7-94e8-250403bb7c92_1990d444-f54d-4b6f-aba3-f9b648d1a0bc.png_compressed",
+      costForTwo: "₹400 for two",
+      cuisines: ["Biryani", "Kebabs", "Mughlai", "Arabian"],
+      avgRating: 4.2,
+      sla: { deliveryTime: 36 },
     },
   },
 ];
@@ -101,11 +143,14 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard resData={resObj} />   {/* single object, no map */}
+        {resList.map((res) => (
+          <RestaurantCard key={res.info.id}resData={res} />
+        ))}
       </div>
     </div>
   );
 };
+
 
 const AppLayout = () => (
   <div className="app">
@@ -116,7 +161,6 @@ const AppLayout = () => (
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<AppLayout />);
-
 
 // import React from "react";
 // import ReactDOM from "react-dom/client";
