@@ -114,17 +114,7 @@ const resList = [
       sla: { deliveryTime: 25 },
     },
   },
-  {
-    info: {
-      id: "337335",
-      name: "Kannur Food Kitchen",
-      cloudinaryImageId: "watevctlyqwgjz0qkbr7",
-      costForTwo: "₹200 for two",
-      cuisines: ["Kerala", "Biryani", "Beverages"],
-      avgRating: 4.2,
-      sla: { deliveryTime: 31 },
-    },
-  },
+  
   {
     info: {
       id: "42060",
@@ -158,7 +148,7 @@ const AppLayout = () => (
     <Body />
   </div>
 
-  
+
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
