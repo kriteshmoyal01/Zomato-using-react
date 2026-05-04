@@ -105,6 +105,28 @@ const resList = [
   },
   {
     info: {
+      id: "1031311",
+      name: "Burger Singh (Big Punjabi Burgers)",
+      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/25/49bb331c-3f0e-4f54-9117-2a27a98e3355_1031311.jpg",
+      costForTwo: "₹300 for two",
+      cuisines: ["Burgers", "Snacks", "Fast Food", "Biryani"],
+      avgRating: 4.3,
+      sla: { deliveryTime: 35 },
+    },
+  },
+  {
+    info: {
+      id: "1031311",
+      name: "Burger Singh (Big Punjabi Burgers)",
+      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/25/49bb331c-3f0e-4f54-9117-2a27a98e3355_1031311.jpg",
+      costForTwo: "₹300 for two",
+      cuisines: ["Burgers", "Snacks", "Fast Food", "Biryani"],
+      avgRating: 4.3,
+      sla: { deliveryTime: 35 },
+    },
+  },
+  {
+    info: {
       id: "18973",
       name: "Nandhana Palace",
       cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/11/21/c16228db-0f86-484e-b3b4-2fb707f22b76_18973.jpg",
