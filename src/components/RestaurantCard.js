@@ -1,12 +1,8 @@
 import { CDN_URL } from "../utils/constant";
 
-const styleCard = { backgroundColor: "#fff" };
+const styleCard = { backgroundColor: "#ece4e4" };
 
-const RestaurantCard = (props) => {
-  const { resData } = props;
-
-  // changed resData?.info  →  resData?.card?.card?.info
-  // because API structure is: resData.card.card.info.cloudinaryImageId etc.
+const RestaurantCard = ({ resData }) => {  // ✅ destructure directly
   const {
     cloudinaryImageId,
     name,
@@ -14,7 +10,7 @@ const RestaurantCard = (props) => {
     avgRating,
     costForTwo,
     sla: { deliveryTime },
-  } = resData?.card?.card?.info;
+  } = resData?.info;
 
   return (
     <div className="res-card" style={styleCard}>
@@ -33,36 +29,3 @@ const RestaurantCard = (props) => {
 };
 
 export default RestaurantCard;
-// import { CDN_URL } from "../utils/constant";
-
-// const styleCard = { backgroundColor: "#fff" };
-
-// const RestaurantCard = (props) => {
-//   const { resData } = props;
-
-//   const {
-//     cloudinaryImageId,
-//     name,
-//     cuisines,
-//     avgRating,
-//     costForTwo,
-//     sla: { deliveryTime },
-//   } = resData?.info;
-
-//   return (
-//     <div className="res-card" style={styleCard}>
-//       <img
-//         className="res-logo"
-//         alt="res-logo"
-//         src={CDN_URL + cloudinaryImageId}
-//       />
-//       <h3>{name}</h3>
-//       <h4>{cuisines.join(", ")}</h4>
-//       <h4>{avgRating} stars</h4>
-//       <h4>{   costForTwo}</h4>
-//       <h4>{deliveryTime} minutes</h4>
-//     </div>
-//   );
-// };
-
-// export default RestaurantCard;
