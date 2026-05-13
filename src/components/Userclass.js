@@ -5,42 +5,41 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
-      count: 0,
-      count2: 2,
+      userInfo: {
+        name: "Loading...",
+        location: "Loading...",
+        avatar_url: "https://via.placeholder.com/150",
+      },
     };
-
-    console.log(this.props.name + " Child Constructor");
   }
 
-  componentDidMount() {
-    console.log(this.props.name + " Child Component Did Mount");
-    //api call
+  async componentDidMount() {
+    // Only fetch if username is provided
+    if (this.props.githubUser) {
+      const data = await fetch(
+        `https://api.github.com/users/${this.props.githubUser}`
+      );
+      const json = await data.json();
+
+      this.setState({
+        userInfo: json,
+      });
+    }
   }
 
   render() {
-    const { name, location, contact } = this.props;
-    const { count, count2 } = this.state;
-
-    console.log(this.props.name + " Child Render");
+    const { name, location, avatar_url, login } = this.state.userInfo;
 
     return (
       <div className="user-card">
-        <h1>Count: {count}</h1>
-        <h1>Count2: {count2}</h1>
+        <img className="avatar" src={avatar_url} alt="avatar" />
 
-        <button
-          onClick={() => {
-            this.setState((prev) => ({
-              count: prev.count + 1,
-            }));
-          }}
-        >
-          Count Increase
-        </button>
+        <h2>{name || login}</h2>
+        <p className="role">{this.props.role}</p>
 
-        <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
-        <h4>Contact: {contact}</h4>
+        <p>📍 {location || "}</p>
+
+        <p className="contact">{this.props.contact}</p>
       </div>
     );
   }
