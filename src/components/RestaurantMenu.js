@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import resMock from "../utils/resmockData";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
 
   const { resId } = useParams();
+
+  //const resInfo = useRestaurantMenu(resId);
 
   const restaurant = resMock.find(
     (res) => res.id === resId

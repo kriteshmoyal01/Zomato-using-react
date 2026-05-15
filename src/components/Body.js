@@ -3,29 +3,46 @@ import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [list, setList] = useState(resList);
+
   const [filteredRestaurant, setFilteredRestaurant] =
     useState(resList);
 
   const [searchText, setSearchText] = useState("");
 
-  return list.length === 0 ? (
+  const onlineStatus = useOnlineStatus();
+
+  // Offline Check
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like u are offline, please check your
+        network
+      </h1>
+    );
+  }
+
+  // Shimmer UI
+  return filteredRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
 
+      {/* Search and Filter Section */}
       <div className="filter">
 
         <div className="search">
+
           <input
             type="text"
             className="search-box"
             value={searchText}
-            onChange={(e) =>
-              setSearchText(e.target.value)
-            }
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
           />
 
           <button
@@ -41,6 +58,7 @@ const Body = () => {
           >
             Search
           </button>
+
         </div>
 
         <button
@@ -58,7 +76,9 @@ const Body = () => {
 
       </div>
 
+      {/* Restaurant Cards */}
       <div className="res-container">
+
         {filteredRestaurant.map((res) => (
           <Link
             key={res?.info?.id}
@@ -67,6 +87,7 @@ const Body = () => {
             <RestaurantCard resData={res} />
           </Link>
         ))}
+
       </div>
 
     </div>
@@ -74,6 +95,7 @@ const Body = () => {
 };
 
 export default Body;
+
 // import { useState, useEffect } from "react";
 // import RestaurantCard from "./RestaurantCard";
 // import Shimmer from "./Shimmer";

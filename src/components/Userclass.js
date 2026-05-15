@@ -37,7 +37,7 @@ class UserClass extends React.Component {
         <h2>{name || login}</h2>
         <p className="role">{this.props.role}</p>
 
-        <p>📍 {location || "}</p>
+        <p>📍 {location || "India"}</p>
 
         <p className="contact">{this.props.contact}</p>
       </div>
